@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { SwitchImg } from './switch-img/switch-img';
 
 // כל קומפוננטה מורכבת מ-4 חלקים
 // 1. תצוגה - HTML template
@@ -26,6 +27,7 @@ import { Component, signal } from '@angular/core';
   //     }
   //   `,
   // ],
+  imports: [SwitchImg], // רכיבים של אנגולר שמשתמשים בהם בטמפלייט
 })
 export class App {
   

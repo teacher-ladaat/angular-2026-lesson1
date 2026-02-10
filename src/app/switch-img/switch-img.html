@@ -1,0 +1,27 @@
+<!-- binding - קישור נתונים מהקלאס לטמפלייט ולהפך -->
+<!-- 1. {{}} - string interpolation, invoke toString (ts -> html) -->
+<h2>{{ clownName }}</h2>
+<img src="{{ clownNumber }}.jpg" alt="ליצן" />
+<p>born date: {{ clownBorn }}</p>
+<p>big than 2: {{ clownNumber + 1 > 2 }}</p>
+
+<!-- 2. [] - property binding - קישור של תכונות הטמל מהטייפסקריפט -->
+<button [disabled]="clownNumber + 1 >= 5" (click)="nextClownDisable()">change to next clown</button>
+<!-- שגוי כי ישים תמיד את התכונה וערך התכונה לא משפיע -->
+<!-- <button disabled="{{clownNumber + 1 === 5}}" (click)="nextClownDisable()">change to next clown</button> -->
+
+<!-- 3. (event)="func(...)" - event handling (html -> ts) -->
+<button (click)="changeClownTo(2)">change to clown 2</button>
+<button (click)="nextClown()">change to other clown</button>
+
+<div>
+  <!-- $event - פרטי האירוע שנשלחים אוטומטית -->
+  <button (click)="changeToBtnNum($event)">1</button>
+  <button (click)="changeToBtnNum($event)">2</button>
+  <button (click)="changeToBtnNum($event)">3</button>
+</div>
+<div>
+  <!-- #myInpRef - template reference variable -->
+  <input type="number" name="clown-num" #myInpRef />
+  <button (click)="changeFromInput(myInpRef)">change from input</button>
+</div>
